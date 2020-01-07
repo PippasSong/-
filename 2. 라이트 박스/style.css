@@ -1,0 +1,76 @@
+/* *는 전체 선택자*/
+*{margin: 0;}
+body{padding: 20px;}
+h1, h2, h3, h4, p{
+  font-weight: normal;
+  margin: 5px 0;
+}
+
+/*라이트 박스 컨테이너
+라이트 박스에 active 클래스가 있으면 표시되도록(display: block) 한다*/
+#lightbox.active{
+  position: absolute;
+  overflow: hidden;
+  background: #333;
+  width: 800px;
+  height: 540px;
+  left: 50%;
+  margin-left: : -400px;
+  top: 50%;
+  margin-top: -250px;
+  box-sizing: border-box;
+  padding: 30px;
+  z-index: 99;
+  display: block;
+}
+
+#lightbox{display: none;}/*그렇지 않으면 비표시 상태가 된다*/
+#ligthbox h1, #lightbox p{
+  color: white;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+/*이미지 박스*/
+figure{
+  width: 500px; height: 300px;
+  position: relative;
+  margin: 10px auto;
+  overflow: hidden;
+}
+
+figure img{
+  display: none;
+  position: absolute;
+}
+figure img.active{ display: block;}/*라이트 박스의 이미지는 기본적으로 모두 비표시 상태로 설정되고 해당 이미지가 선택되었을 때만 'active' 클래스를 추가해 표시되도록 처리합니다.*/
+
+/*창 닫기 버튼*/
+.btn-close{
+  position: absolute;
+  top: 0px; right: 0px;
+  padding: 10px;
+  color: white; font-size: large;
+}
+.btn-close:hover{background-color: #666;}
+
+/*라이트 박스 배경 처리를 위한 CSS를 작성*/
+#block{
+  position: fixed;
+  width; 100%; height: 100%;
+  top: 0; bottom: 0; left: 0; right: 0;
+  background: #111;
+  opacity: 0.5; /*요소를 투명하게 만드는 속성*/
+  z-index: 9; /*라이트 박스용 배경은 아래쪽보다 우선하도록 z-index속성을 줍니다*/
+  display: none;
+}
+#block.active{display: block;}/*라이트 박스가 열리면 숨어 있던 라이트 박스용 배경(#block)이 표시되도록 합니다*/
+
+/*인디케이터 내비게이션*/
+.indicator{text-align: centor;}
+.indicator button{
+  background: #666; color: white;
+  font-size: 12px;
+  border: none; padding: 2px 5px;
+}
+.indicator button: focus{background: #38f;}/*인디케이터 버튼이 활성화되었을 경우의 색상 지정을 추가*/
